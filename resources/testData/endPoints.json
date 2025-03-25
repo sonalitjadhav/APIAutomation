@@ -1,0 +1,4 @@
+{
+  "getUser": "/api/users",
+  "deleteUser": "/api/users/2"
+}
