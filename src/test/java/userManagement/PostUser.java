@@ -133,7 +133,7 @@ public class PostUser {
         System.out.println(response.getBody().asString());
     }
 
-    @Test(description = "Validating response by using POJO object")
+    @Test(description = "Validating response")
     public void validatePostWithPojoObject() {
 
         CityRequest cityRequest1 = new CityRequest();
