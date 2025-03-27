@@ -8,7 +8,6 @@ import java.io.File;
 public class ExtentReport {
     public static ExtentReports extentreport = null;
     public static ExtentTest extentlog;
-
     public static void initialize(String path) {
         if (extentreport == null) {
             extentreport = new ExtentReports(path, true);

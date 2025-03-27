@@ -8,6 +8,7 @@ import io.restassured.response.Response;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import utils.JSONReader;
+import utils.SoftAssertionUtil;
 
 import java.util.Arrays;
 import java.util.List;
@@ -20,6 +21,8 @@ import static org.hamcrest.core.IsEqual.equalTo;
 import static org.testng.Assert.assertEquals;
 
 public class GetUsers {
+
+    SoftAssertionUtil softAssertion = new SoftAssertionUtil();
 
     @Test
     public void getUsersData(){
@@ -166,6 +169,21 @@ public class GetUsers {
         Response response = given().when().delete(JSONReader.get("deleteUser"));
 
         assertEquals(response.getStatusCode(), StatusCode.NO_CONTENT.code);
+    }
+
+    @Test
+    public void singleQueryParamValidateWithSoftAssertion(){
+
+        RestAssured.baseURI = "https://reqres.in";
+        Response response = given().
+                queryParam("page", "2").
+                when().
+                get("/api/users?page=2");
+
+        System.out.println("Response is: " + response.asString());
+
+        softAssertion.assertEquals(response.getStatusCode(), StatusCode.SUCCESS.code, "Status code is not equals 200");
+        softAssertion.assertAll();
     }
 
 }

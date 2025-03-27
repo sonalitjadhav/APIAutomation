@@ -3,7 +3,6 @@ package utils;
 import org.apache.commons.io.FileUtils;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
-
 import java.io.File;
 
 public class JSONReader {
