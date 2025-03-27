@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="API Automation Suite" parallel="tests" thread-count="2">
+<suite name="API Automation Suite" parallel="methods" thread-count="4">
     <test name="Automation Test Get Users">
         <classes>
             <class name="userManagement.GetUsers"/>
         </classes>
     </test>
-    <test name="Automation Test Postman">
+    <test name="Automation Test JSON placeholder">
         <classes>
             <class name="jsonPlaceholderEndpoint.GetUsers"/>
         </classes>

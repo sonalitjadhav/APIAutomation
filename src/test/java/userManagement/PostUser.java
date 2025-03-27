@@ -77,7 +77,7 @@ public class PostUser {
         System.out.println(response.getBody().asString());
     }
 
-    @Test
+    @Test(groups = "Smoke")
     public void validatePostWithPojo() {
 
         PostRequestBodyRegres postRequestBodyRegres = new PostRequestBodyRegres();
@@ -110,7 +110,7 @@ public class PostUser {
         System.out.println(response.getBody().asString());
     }
 
-    @Test
+    @Test(groups = "Regression")
     public void validatePutWithPojo() {
         String name = "Jamie";
         String job = "Nurse";

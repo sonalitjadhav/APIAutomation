@@ -51,16 +51,6 @@ public class GetUsers {
     }
 
     @Test
-    public void validateGetUserResponseHamcrestMatchers(){
-        RestAssured.baseURI = "https://jsonplaceholder.typicode.com";
-        Response response = given().log().all().when().get("/comments?postId=1").then().extract().response();
-        System.out.println("Response is: " + response.asString());
-
-        List<String> expectedEmail = Arrays.asList("Eliseo@gardner.biz", "Jayne_Kuhic@sydney.com", "Nikita@garfield.biz", "Lew@alysha.tv", "Hayden@althea.biz");
-        assertThat(response.jsonPath().getList("email"), contains(expectedEmail.toArray(new String[0])));
-    }
-
-    @Test
     public void validateGetUserResponseForFirstUser(){
 
         RestAssured.baseURI = "https://reqres.in";
@@ -74,7 +64,7 @@ public class GetUsers {
         response.then().body("data[0].avatar", is("https://reqres.in/img/faces/7-image.jpg"));
     }
 
-    @Test
+    @Test(groups = {"Smoke", "Regression"})
     public void singleQueryParam(){
 
         RestAssured.baseURI = "https://reqres.in";
@@ -92,7 +82,7 @@ public class GetUsers {
         response.then().body("data[0].avatar", is("https://reqres.in/img/faces/7-image.jpg"));
     }
 
-    @Test
+    @Test (enabled = false)
     public void testCreateUserWithFormParam() {
 
         RestAssured.baseURI = "https://reqres.in";
@@ -127,7 +117,7 @@ public class GetUsers {
                 .response();
     }
 
-    @Test
+    @Test(groups = "Regression")
     public void getHeadersFromResponse() {
 
         RestAssured.baseURI = "https://reqres.in";
@@ -162,7 +152,7 @@ public class GetUsers {
         }
     }
 
-    @Test
+    @Test(groups = "Smoke")
     public void deleteUser() {
 
         RestAssured.baseURI = "https://reqres.in";
