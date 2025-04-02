@@ -150,7 +150,7 @@ public class PostUser {
 
         PostRequestBodyComplexJSON postRequestBody = new PostRequestBodyComplexJSON();
         postRequestBody.setName("Tom");
-        postRequestBody.setName("Engineer");
+        postRequestBody.setJob("Engineer");
         postRequestBody.setLanguages(new ArrayList<>(Arrays.asList("Java", "Python", "Javascript")));
         postRequestBody.setCityRequestBody(cityRequest);
 
